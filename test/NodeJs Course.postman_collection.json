@@ -184,10 +184,14 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "file",
-									"file": {
-										"src": "/C:/Users/stakkeka/Desktop/pic1.jpg"
-									}
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "mypic",
+											"type": "file",
+											"src": "/C:/Users/stakkeka/Desktop/rog.png"
+										}
+									]
 								},
 								"url": {
 									"raw": "{{url}}/users/me/avatar",
