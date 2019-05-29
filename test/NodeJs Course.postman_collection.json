@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "1630fd6e-d6b4-4471-b130-44f3de4e656f",
+		"name": "NodeJs Course",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task Manager",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Create User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bf464f8a-d831-41f6-b751-7218d51edd83",
+										"exec": [
+											"postman.setEnvironmentVariable(\"token\", JSON.parse(responseBody).token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"John\",\r\n\t\"email\": \"john.nhoj@gmail.com\",\r\n\t\"password\": \"jonny123\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/users/",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "448ed2da-3f13-4239-a59b-1ac7e604d6f9",
+										"exec": [
+											"postman.setEnvironmentVariable(\"token\", JSON.parse(responseBody).token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"john.nhoj@gmail.com\",\n\t\"password\": \"jonny123\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}/users/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Profile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/me",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"John\",\r\n\t\"email\": \"john.nhoj@gmail.com\",\r\n\t\"password\": \"jonny12345\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}/users/me",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/me",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Avatar",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": "/C:/Users/stakkeka/Desktop/pic1.jpg"
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/me/avatar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"avatar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Avatar",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/5ce911d627e054315c851998/avatar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"5ce911d627e054315c851998",
+										"avatar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Avatar",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/me/avatar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"avatar"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1005bfe2-4608-4d8a-be14-c7d5171c9539",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "173ef82e-96ff-4af1-a588-68e669b3cde7",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Tasks",
+					"item": [
+						{
+							"name": "Create Task",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"description\": \"Draw a sketch\",\n\t\"completed\": false\n}"
+								},
+								"url": {
+									"raw": "{{url}}/tasks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Tasks",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/tasks?completed=true&skip=1&limit=3&sortBy=completed_asc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tasks"
+									],
+									"query": [
+										{
+											"key": "completed",
+											"value": "true"
+										},
+										{
+											"key": "skip",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "3"
+										},
+										{
+											"key": "sortBy",
+											"value": "completed_asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Task",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"description\": \"Create a repo on git\",\n\t\"completed\": true\n}"
+								},
+								"url": {
+									"raw": "{{url}}/tasks/5ce911d627e054315c851998",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tasks",
+										"5ce911d627e054315c851998"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Task",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/tasks/5ce911d627e054315c857998",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tasks",
+										"5ce911d627e054315c857998"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4d0b79f4-5019-4408-9780-1c4daf8552db",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e4cad8e9-2585-4122-9e10-8e0712dccc6b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cce84eca-b0f4-47e3-bd47-561ba7596617",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9afe6881-bdb4-48fb-8885-885f70327f88",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
