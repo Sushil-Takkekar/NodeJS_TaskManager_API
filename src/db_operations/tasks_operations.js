@@ -56,6 +56,7 @@ const update_task = (id, owner, updates) => {
     });
 }
 
+// delete task by id
 const delete_task = (id, owner) => {
     return new Promise((resolve, reject) => {
         task_schema.findOneAndDelete({ _id : id, owner}).then((data) => {

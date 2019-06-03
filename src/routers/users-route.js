@@ -17,7 +17,7 @@ router.post('/users', (req, res) => {
 router.post('/users/login', async (req, res) => {
     try {
         const user = await users.login_user(req.body.email, req.body.password);
-        res.send(user);
+        res.status(200).send(user);
     }catch(err) {
         res.status(401).send({ error: err+"" });
     }

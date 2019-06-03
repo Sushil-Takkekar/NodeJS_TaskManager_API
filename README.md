@@ -30,7 +30,7 @@ Get Tasks   : GET    : {{url}}/tasks?completed=<true/false>&skip=<skip_count>&li
 Update Task : PATCH  : {{url}}/tasks/<task_id>
 Delete Task : DELETE : {{url}}/tasks/<task_id>
 
-Note : You can test this api using postman (ready-to-use requests collection is available under '/test').
+Note : You can test this api using postman (ready-to-use requests collection is available under '/postman').
 ```
 
 ### Live Demo

@@ -40,6 +40,18 @@ const get_all_users = () => {
     });
 }
 
+// delete all users
+const delete_all_users = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            await user_model_schema.deleteMany();
+            resolve();
+        }catch(e){
+            reject(e);
+        }
+    });
+}
+
 // get single user by id
 const get_user = (id) => {
     return new Promise((resolve, reject) => {
@@ -201,6 +213,7 @@ module.exports = {
     get_user,
     update_user,
     delete_user,
+    delete_all_users,
     upload_avatar,
     delete_avatar,
     get_avatar,
