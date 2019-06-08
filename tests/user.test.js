@@ -36,7 +36,7 @@ test('Should not create new user', async () => {
     await request(app)
         .post('/users')
         .send(user_data.create_data_incorrect)
-        .expect(201);   // change it to 400 later
+        .expect(400);
 });
 
 /****************/
