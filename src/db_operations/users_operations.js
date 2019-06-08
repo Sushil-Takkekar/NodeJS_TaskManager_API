@@ -14,18 +14,22 @@ const avatar = {
 // create new user
 const create_user = (user) => {
     return new Promise((resolve, reject) => {
-        const user_schema = new user_model_schema(user);    // it will validate the user attributes at model level
-        bcrypt.hash(user_schema.password, 7).then((h_pwd) => {
-            user_schema.password = h_pwd;
-            user_schema.save().then(async (user) => {
-                email.sendWelcomeEmail(user.email, user.name);
-                const token = await user.generateAuthToken();   // call this model method using actual user object
-                resolve({ user, login: true, token});
-                resolve(user);
-            }).catch((err) => {
-                reject(err);
+        try {
+            const user_schema = new user_model_schema(user);    // it will validate the user attributes at model level
+            bcrypt.hash(user_schema.password, 7).then((h_pwd) => {
+                user_schema.password = h_pwd;
+                user_schema.save().then(async (user) => {
+                    email.sendWelcomeEmail(user.email, user.name);
+                    const token = await user.generateAuthToken();   // call this model method using actual user object
+                    resolve({ user, login: true, token});
+                    resolve(user);
+                }).catch((err) => {
+                    reject(err);
+                });
             });
-        });
+        }catch(e) {
+            reject(e);
+        }
     });
 }
 

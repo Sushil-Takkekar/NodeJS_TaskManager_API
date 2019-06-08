@@ -17,7 +17,7 @@ const sendAccDeleteEmail = (email, name) => {
     const msg = {
         to: email,
         from: 'sushycom@gmail.com',
-        subject: 'Welcome to Task Manager App',
+        subject: 'Signing Off from Task Manager App',
         text: `Good Bye ${name}! 
         Please let us know your feedback or the reason to delete account. We'll definitely work on it.`
     };
